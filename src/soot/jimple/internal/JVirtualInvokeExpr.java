@@ -42,7 +42,8 @@ public class JVirtualInvokeExpr extends AbstractVirtualInvokeExpr
         super(Jimple.v().newLocalBox(base), methodRef, new ValueBox[args.size()]);
         
         if(methodRef.declaringClass().isInterface()) {
-        	throw new RuntimeException("Trying to create virtual invoke expression for interface type. Use JInterfaceInvokeExpr instead!");
+            G.v().out.println("ERROR: Trying to create virtual invoke expression for interface type. Use JInterfaceInvokeExpr instead!");
+//        	throw new RuntimeException("Trying to create virtual invoke expression for interface type. Use JInterfaceInvokeExpr instead!");
         }
 
         for(int i = 0; i < args.size(); i++)
