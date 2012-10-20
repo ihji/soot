@@ -27,6 +27,10 @@
 package soot.jimple.toolkits.typing.integer;
 
 import soot.*;
+import soot.jimple.toolkits.typing.fast.Integer127Type;
+import soot.jimple.toolkits.typing.fast.Integer1Type;
+import soot.jimple.toolkits.typing.fast.Integer32767Type;
+
 import java.util.*;
 
 /**
@@ -43,6 +47,10 @@ public class ClassHierarchy
     typeNodeMap.put(ShortType.v(), SHORT);
     typeNodeMap.put(CharType.v(), CHAR);
     typeNodeMap.put(IntType.v(), INT);
+
+      typeNodeMap.put(Integer1Type.v(), BOOLEAN);
+      typeNodeMap.put(Integer127Type.v(), BYTE);
+      typeNodeMap.put(Integer32767Type.v(), SHORT);
   }
 
     public static ClassHierarchy v() { return G.v().soot_jimple_toolkits_typing_integer_ClassHierarchy(); }
@@ -170,7 +178,7 @@ public class ClassHierarchy
       {
 	throw new InternalTypingException();
       }
-    
+
     TypeNode typeNode = typeNodeMap.get(type);
 
     if(typeNode == null)
